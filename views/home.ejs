@@ -1,0 +1,16 @@
+<%- include("partials/" + "header"); -%>
+  <h1>Home</h1>
+  <p> <%= homeStart %> </p>
+    <% homePosts.forEach(function(ele){ %>
+        <h1> <%=  ele.title %> </h1>
+        <% if(ele.body.length > 100){ %>
+          <% let subStr = ele.body.substr(0,100) + "..."; %>
+          <p> <%=  subStr %>
+            <a href="/posts/<%= ele.title %>">Read More</a>
+
+          </p>
+        <% } else{ %>
+          <p> <%= ele.title %> </p>
+          <% } %>
+    <% }); %>
+<%- include("partials/" + "footer"); -%>
